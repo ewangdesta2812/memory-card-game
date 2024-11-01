@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: beige;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.tile {
+  width: 100px;
+  height: 100px;
+  background-color: #727171; /* Kartu tertutup warna gelap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: transparent; /* Gambar disembunyikan */
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s; /* Efek transisi untuk flip */
+}
+
+.tile.flipped {
+  background-color: #844747; /* Kartu terbuka warna putih */
+  color: black; /* Tampilkan gambar */
+  transform: rotateY(180deg); /* Efek flip */
+}
+
+.tile.matched {
+  background-color: #8bc34a; /* Warna hijau untuk kartu yang cocok */
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  #game-board {
+    grid-template-columns: repeat(4, 80px);
+    grid-gap: 8px;
+    max-width: 320px;
+  }
+
+  .tile {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  #status {
+    font-size: 1em;
+  }
+}
+
+/* Aturan Responsif untuk perangkat yang sangat kecil (seperti layar ponsel 320px) */
+@media (max-width: 400px) {
+  #game-board {
+    grid-template-columns: repeat(4, 60px);
+    grid-gap: 5px;
+    max-width: 260px;
+  }
+
+  .tile {
+    width: 60px;
+    height: 60px;
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  #status {
+    font-size: 0.9em;
+  }
+}
